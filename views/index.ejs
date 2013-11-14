@@ -30,13 +30,8 @@
       <div class="jumbotron">
       <h1>Welcome!</h1>
       <p>This photo-sharing app ties in with Facebook to share and communicate with friends.</p>
-      <% if (locals.user) { %>
-        <p>You are logged in. Hi, <strong><%= user.first_name %></strong>.</p>
-        <p><a class="btn btn-primary btn-lg" href="/user/<%= user._id %>">Profile</a></p>
-      <% } else { %>
         <p>You are not logged in.</p>
         <p><a class="btn btn-primary btn-lg" href="/login">Log in</a></p>
-      <% } %>
     </div>
  	</div>
  </body>

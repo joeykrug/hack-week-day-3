@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title><%= user.first_name %>'s Profile</title>
+    <title>USER's Profile</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     <link href="/Slides/css/example.css" rel="stylesheet" >
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -26,50 +26,19 @@
       </div>
     </nav>
     <!-- Nav bar end -->
-    <h1 style="text-align:center;"><%= user.first_name %>'s Photos</h1>
+    <h1 style="text-align:center;">USER's Photos</h1>
     <div class="row"  style="padding: 0px 10px 0px 10px">
       <div class="col-md-4">
         <h3>Posts:</h3>
-        <form action='/user/<%= user._id %>/wallpost' class="form-inline" role="form" method="post">
-           <div class="form-group">
-              <textarea class="form-control" name="post"rows="4" cols="30"></textarea>
-           </div>
-           <div class="form-group">
-             <input class="btn btn-primary" type='submit'>
-           </div>
-         </form>
-         <ul class="media-list">
-           <% for (var i = 0; i < user.posts.length; i++) { %>
-              <li class="media">
-                <div class="media-body">
-                  <h4 class="media-heading"><%= user.posts[i].sender_name %></h4>
-                  <p><%= user.posts[i].text %></p>
-                </div>
-              </li>
-            <% } %>
-         </ul>
+
+        <!-- Posts go here -->
       </div>
 
   <div class="col-md-8">
    <div class="container">
-        <% if (user.photos.length == 1) { %>
-          <img src="<%= user.photos[0].url %>" width="940" height="528">
-        <% } else if (user.photos.length > 1) { %>
-          <div id="slides">
-            <% for (var i = 0; i < user.photos.length; i++) { %>
-              <img src="<%= user.photos[i].url %>">
-            <% } %>
-            <a href="#" class="slidesjs-previous slidesjs-navigation"><i class="glyphicon glyphicon-chevron-left"></i></a>
-            <a href="#" class="slidesjs-next slidesjs-navigation"><i class="glyphicon glyphicon-chevron-right"></i></a>
-          </div>
-        <% } %>
-      <form action="/user/<%= user._id %>/upload" class="form-inline" role="form" method="post">
-        <div class="form-group">
-          <input type="url" name="url" class="form-control" id="photo-url" placeholder="Enter a photo URL here">
-        </div>
-        <button type="submit" class="btn btn-primary">Upload Photo</button>
-      </form>
-    </div>
+    <!-- Photos go here -->
+
+   </div>
   </div>
 </div>
 
@@ -81,11 +50,8 @@
         <h3>Friends</h3>
       </div>
       <div class="modal-body">
-        <ul>
-          <% for (var i = 0; i < user.friends.length; i++) { %>
-            <li><a href="/user/<%= user.friends[i].id %>"><%= user.friends[i].name %></a></li>
-          <% } %>
-        </ul>
+          <!-- Friends go here -->
+
       </div>
     </div>
   </div>
